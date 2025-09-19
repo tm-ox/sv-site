@@ -14,7 +14,8 @@
     "lint": "prettier --check . && eslint .",
     "test:unit": "vitest",
     "test": "npm run test:unit -- --run && npm run test:browser",
-    "test:browser": "playwright test"
+    "test:browser": "playwright test",
+    "sync": "svelte-kit sync"
   },
   "devDependencies": {
     "@eslint/compat": "^1.2.5",

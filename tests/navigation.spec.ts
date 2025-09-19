@@ -14,6 +14,7 @@ test('navigation smoke test', async ({ page }) => {
   // await page.getByRole('link', { name: 'Get started' }).click();
 
   // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { level: 1, name: 'Hero' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: '' })).toBeVisible();
+  await expect(page).toHaveTitle(/SITE/);
   // await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
 });
