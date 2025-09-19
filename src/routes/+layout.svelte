@@ -2,7 +2,7 @@
 	import '../app.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import { ModeWatcher } from 'mode-watcher';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import Nav from '$lib/components/ui/Nav.svelte';
 	import { onNavigate } from '$app/navigation';
 
@@ -17,14 +17,30 @@
 		});
 	});
 
+	const siteMeta = {
+		title: 'Site Name',
+		desc: 'Site Description',
+		og: '/og.jpg'
+	};
+
+	let title = $derived(
+		page.data.meta?.title ? `${siteMeta.title} | ${page?.data.meta.title}` : `${siteMeta.title}`
+	);
+	let desc = $derived(page.data.meta?.desc ? page.data.meta.desc : siteMeta.desc);
+	let ogImageURL = $derived(`${page.url.origin}${siteMeta.og}`);
+
 	let { children } = $props();
 </script>
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
-	<title>
-		SITE {$page?.url?.pathname != '/' ? `| ${$page?.url?.pathname?.slice(1)}` : ''}
-	</title>
+	<title>{title}</title>
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={desc} />
+	<meta property="og:url" content={page.url.href} />
+	<meta property="og:type" content="article" />
+	<meta property="og:image" content={ogImageURL} />
+	<meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 
 <ModeWatcher />

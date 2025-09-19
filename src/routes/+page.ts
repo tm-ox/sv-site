@@ -6,8 +6,8 @@ export const load = () => {
 
   return {
     meta: {
-      title: 'Home',
-      desc: 'Home page.'
+      // title: 'Home',
+      // desc: 'Home page.'
     },
     hero: {
       title: 'HERO',
