@@ -14,7 +14,11 @@ export const load = () => {
 		},
 		signup: {
 			title: 'Signup',
-			id: 'signup'
+			id: 'signup',
+      card: {
+        title: 'Signup',
+        dec: 'Signup Description'
+      }
 		}
 	};
 };

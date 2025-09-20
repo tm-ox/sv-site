@@ -187,13 +187,22 @@
 	h2,
 	h3,
 	h4 {
-		@apply font-display font-bold;
+		@apply mb-2 font-display font-bold;
 	}
 	h1 {
 		@apply text-6xl md:text-7xl;
 	}
 	h2 {
 		@apply text-4xl md:text-5xl;
+	}
+	h3 {
+		@apply text-3xl md:text-4xl;
+	}
+	h4 {
+		@apply text-xl md:text-2xl;
+	}
+	h5 {
+		@apply font-display md:text-lg;
 	}
 	a,
 	button {
