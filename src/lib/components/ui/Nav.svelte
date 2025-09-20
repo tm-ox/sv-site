@@ -1,20 +1,18 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	// import { $state } from 'svelte'; // Import $state
 	import Theme from './Theme.svelte';
 	import Button from './button/button.svelte';
 
-	let isMenuOpen = false;
-	let isResizing = false;
+	// Declare reactive state with $state()
+	let isMenuOpen = $state(false);
+	let isResizing = $state(false);
+
 	let resizeTimeout: ReturnType<typeof setTimeout>;
 
 	function toggleMenu() {
 		isMenuOpen = !isMenuOpen;
 	}
-
-	const items: { title: string; href: string }[] = [
-		{ title: 'Home', href: '/' },
-		{ title: 'About', href: '/about' }
-	];
 
 	onMount(() => {
 		function handleResize() {
@@ -33,37 +31,46 @@
 			window.removeEventListener('resize', handleResize);
 		};
 	});
+
+	type Links = {
+		title: string;
+		href: string;
+	};
+
+	let { links }: { links: Links[] } = $props();
 </script>
 
 <nav class="flex gap-2">
-	<Button size="sm" variant="outline" class="md:hidden" name="menu" onclick={toggleMenu}
-		>Menu</Button
-	>
+	<Button size="sm" variant="outline" class="md:hidden" name="menu" onclick={toggleMenu}>Menu</Button>
 
 	<div
 		class="
-      z-50 flex w-full
-      flex-col items-center gap-4 pb-48 backdrop-blur
+			z-50 flex w-full
+			flex-col items-center gap-4 pb-48 backdrop-blur
 
-      md:relative md:top-0 md:left-auto md:h-auto md:w-auto md:flex-row md:gap-1
-      md:p-0 md:opacity-100 md:backdrop-blur-none
+			md:relative md:top-0 md:left-auto md:h-auto md:w-auto md:flex-row md:gap-1
+			md:p-0 md:opacity-100 md:backdrop-blur-none
 
-      {isMenuOpen ? 'fixed top-0 left-0 h-svh' : 'fixed top-[-100%] left-0'}
-      {isResizing ? 'transition-none' : 'transition-all duration-300 ease-in md:transition-none'}
-    "
+			{isMenuOpen ? 'fixed top-0 left-0 h-svh' : 'fixed top-[-100%] left-0'}
+			{isResizing ? 'transition-none' : 'transition-all duration-300 ease-in md:transition-none'}
+		"
 	>
-		<Button size="lg" variant="outline"
+		<Button
+			size="sm"
+			variant="outline"
 			class="my-8 cursor-pointer md:hidden"
 			name="close-menu"
 			onclick={toggleMenu}>X</Button
 		>
-
-		{#each items as item (item)}
-			<Button size="sm" variant="outline" class="w-svw md:w-auto" href={item.href} onclick={toggleMenu}
-				>{item.title}</Button
+		{#each links as link (link)}
+			<Button
+				size="sm"
+				variant="outline"
+				class="w-svw md:w-auto"
+				href={link.href}
+				onclick={toggleMenu}>{link.title}</Button
 			>
 		{/each}
-
 		<Theme />
 	</div>
 </nav>

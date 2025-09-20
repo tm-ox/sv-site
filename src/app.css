@@ -148,6 +148,9 @@
 	* {
 		@apply border-border outline-ring/50;
 	}
+	html {
+		@apply scroll-smooth;
+	}
 	body {
 		-webkit-font-smoothing: antialiased;
 		isolation: isolated;
@@ -197,7 +200,7 @@
 		@apply cursor-pointer;
 	}
 	section {
-		@apply mx-auto flex w-full max-w-7xl flex-col px-3 pt-20 sm:px-6;
+		@apply mx-auto flex w-full max-w-7xl flex-col gap-4 px-3 pt-20 sm:px-6;
 	}
 }
 

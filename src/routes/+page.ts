@@ -1,7 +1,7 @@
 export const load = () => {
   const heroActions = [
           { title: 'Services', href: '/' },
-          { title: 'Contact', href: '/' }
+          { title: 'Signup', href: '#signup' }
       ];
 
   return {
@@ -14,8 +14,9 @@ export const load = () => {
       dec: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero ab atque doloremque, harum sed cupiditate unde dignissimos error tempore veniam doloribus ducimus, quas cumque omnis necessitatibus sapiente corrupti exercitationem placeat?',
       heroActions
     },
-    section01: {
-      title: 'Section'
+    signup: {
+      title: 'Signup',
+      id: 'signup'
     }
   };
 };

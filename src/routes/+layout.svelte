@@ -29,7 +29,7 @@
 	let desc = $derived(page.data.meta?.desc ? page.data.meta.desc : siteMeta.desc);
 	let ogImageURL = $derived(`${page.url.origin}${siteMeta.og}`);
 
-	let { children } = $props();
+	let { children, data } = $props();
 </script>
 
 <svelte:head>
@@ -48,7 +48,7 @@
 <header class="fixed top-0 left-0 flex w-full justify-between px-4 py-4 sm:px-6">
 	<div class="mx-auto flex w-full max-w-7xl items-center justify-between">
 		Header
-		<Nav />
+		<Nav links={data.nav.links} />
 	</div>
 </header>
 
