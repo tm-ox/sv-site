@@ -40,10 +40,11 @@
 				{/each}
 			</Card.Content>
 			<Card.Footer>
-				<Button type="submit" size="sm" variant="outline" class="w-full"
+				<Button type="submit" size="sm" class="w-full"
 					>{data.signup.card.button}</Button
 				>
 			</Card.Footer>
 		</form>
 	</Card.Root>
+	<p>{data.signup.disclaimer}</p>
 </section>
