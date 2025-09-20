@@ -17,7 +17,12 @@ export const load = () => {
 			id: 'signup',
       card: {
         title: 'Signup',
-        dec: 'Signup Description'
+        dec: 'Signup Description',
+        inputs: [
+          { label: 'Name', name: 'name', type: 'text', placeholder: 'Name' },
+          { label: 'Email', name: 'email', type: 'email', placeholder: 'Email' }
+        ],
+        button: 'Signup'
       }
 		}
 	};

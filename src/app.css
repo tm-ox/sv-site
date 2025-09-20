@@ -190,19 +190,19 @@
 		@apply mb-2 font-display font-bold;
 	}
 	h1 {
-		@apply text-6xl md:text-7xl;
+		@apply text-5xl md:text-7xl;
 	}
 	h2 {
 		@apply text-4xl md:text-5xl;
 	}
 	h3 {
-		@apply text-3xl md:text-4xl;
-	}
-	h4 {
 		@apply text-xl md:text-2xl;
 	}
+	h4 {
+		@apply text-lg md:text-xl;
+	}
 	h5 {
-		@apply font-display md:text-lg;
+		@apply font-display text-sm md:text-base;
 	}
 	a,
 	button {
@@ -214,4 +214,14 @@
 }
 
 @layer components {
+}
+
+/* For WebKit-based browsers (Chrome, Safari, Edge) */
+html::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+/* For Firefox */
+html {
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
 }

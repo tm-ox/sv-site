@@ -5,6 +5,7 @@
 	import { page } from '$app/state';
 	import Nav from '$lib/components/ui/Nav.svelte';
 	import { onNavigate } from '$app/navigation';
+	import { Toaster } from '$lib/components/ui/sonner';
 
 	onNavigate((navigation) => {
 		if (!document.startViewTransition) return;
@@ -52,4 +53,7 @@
 	</div>
 </header>
 
+
 {@render children?.()}
+
+<Toaster />
