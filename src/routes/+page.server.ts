@@ -1,25 +1,32 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad, Actions } from './$types';
+import { fail } from '@sveltejs/kit';
 import { superValidate } from 'sveltekit-superforms/server';
 import { zod } from 'sveltekit-superforms/adapters';
 import { formSchema } from './schema';
 
 export const load: PageServerLoad = async () => {
-    const form = await superValidate(zod(formSchema));
-    return {
-        form
-    };
+	return {
+		form: await superValidate(zod(formSchema))
+	};
 };
 
 export const actions: Actions = {
-    default: async ({ request }) => {
-        const data = await request.formData();
-        const email = data.get('email');
+	default: async (request) => {
+		const form = await superValidate(request, zod(formSchema));
+		if (!form.valid) {
+			return fail(400, {
+				form
+			});
+		}
+		await new Promise((resolve) => setTimeout(resolve, 1000));
+		const { email } = form.data;
+		if (typeof email === 'string' && email.includes('error')) {
+			return fail(500, { form });
+		}
 
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-        if (typeof email === 'string' && email.includes('error')) {
-            error(400, 'Bad Request');
-        }
-        console.log('TODO: Create user contact', email);
-    }
+		console.log('TODO: Create user contact', email);
+
+		return { form };
+	}
 };

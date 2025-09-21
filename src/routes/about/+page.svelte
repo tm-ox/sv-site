@@ -1,4 +1,8 @@
+<script lang="ts">
+	let { data } = $props();
+</script>
+
 <section>
-	<h1>About</h1>
-	Some body
+	<h1>{data.meta.title}</h1>
+	{data.meta.desc}
 </section>

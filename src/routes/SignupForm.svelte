@@ -5,6 +5,7 @@
 	import { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms/client';
 	import { zodClient } from 'sveltekit-superforms/adapters';
 	import * as Card from '$lib/components/ui/card/index.js';
+	import { toast } from 'svelte-sonner';
 
 	type Inputs = {
 		label: string;
@@ -29,12 +30,17 @@
 		form: SuperValidated<Infer<FormSchema>>;
 	} = $props();
 
-	// Pass the form prop directly to superForm
 	const formInstance = superForm(form, {
-		validators: zodClient(formSchema)
+		validators: zodClient(formSchema),
+		onUpdated: () => {
+			toast.success('Thanks! You are signed up.');
+		},
+		onError: (error) => {
+		toast.error('We have a problem, please try again.')
+		}
 	});
 
-	const { form: formData, enhance } = formInstance;
+	const { form: formData, enhance, constraints } = formInstance;
 </script>
 
 <Card.Root class="w-full max-w-3xl p-8">
@@ -48,7 +54,13 @@
 				{#snippet children({ props })}
 					{#each inputs as input (input)}
 						<!-- <Form.Label>{input.label}</Form.Label> -->
-						<Input {...props} bind:value={$formData.email} placeholder={input.placeholder} />
+						<Input
+							type={input.type}
+							{...props}
+							{...$constraints.email}
+							bind:value={$formData.email}
+							placeholder={input.placeholder}
+						/>
 					{/each}
 				{/snippet}
 			</Form.Control>
