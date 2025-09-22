@@ -1,7 +1,6 @@
-import { error } from '@sveltejs/kit';
 import type { PageServerLoad, Actions } from './$types';
 import { fail } from '@sveltejs/kit';
-import { superValidate } from 'sveltekit-superforms/server';
+import { message, superValidate } from 'sveltekit-superforms/server';
 import { zod } from 'sveltekit-superforms/adapters';
 import { formSchema } from './schema';
 
@@ -27,6 +26,6 @@ export const actions: Actions = {
 
 		console.log('TODO: Create user contact', email);
 
-		return { form };
+    return message(form, { type: 'success', text: 'Thanks! You are signed up.' })
 	}
 };
