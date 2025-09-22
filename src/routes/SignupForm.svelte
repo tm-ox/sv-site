@@ -32,10 +32,12 @@
 
 	const formInstance = superForm(form, {
 		validators: zodClient(formSchema),
+		resetForm: false,
 		onUpdated: ({ form: { message } }) => {
 			switch (message?.type) {
 				case 'success':
 					toast.success(message?.text);
+					formInstance.reset()
 					break;
 				case 'error':
 					toast.error(message?.text);
