@@ -8,11 +8,11 @@ declare global {
 		// interface PageState {}
 		// interface Platform {}
 		namespace Superforms {
-      type Message = {
-        type: 'error' | 'success', text: string
-      }
-    }
-
+			type Message = {
+				type: 'error' | 'success';
+				text: string;
+			};
+		}
 	}
 }
 

@@ -5,7 +5,12 @@
 	import Button from './button/button.svelte';
 </script>
 
-<Button size="sm" variant="outline" class="mt-4 cursor-pointer md:mt-0 w-svw md:w-auto" onclick={toggleMode}>
+<Button
+	size="lg"
+	variant="outline"
+	class="mt-4 w-svw md:mt-0 md:h-8 md:w-auto md:text-sm"
+	onclick={toggleMode}
+>
 	<SunIcon
 		class="h-[1rem] w-[1rem] scale-100 rotate-0 !transition-all dark:scale-0 dark:-rotate-90"
 	/>

@@ -41,12 +41,14 @@
 </script>
 
 <nav class="flex gap-2">
-	<Button size="sm" variant="outline" class="md:hidden" name="menu" onclick={toggleMenu}>Menu</Button>
+	<Button size="sm" variant="outline" class="md:hidden" name="menu" onclick={toggleMenu}
+		>Menu</Button
+	>
 
 	<div
 		class="
 			z-50 flex w-full
-			flex-col items-center gap-4 pb-48 backdrop-blur
+			flex-col items-center gap-6 pb-48 backdrop-blur
 
 			md:relative md:top-0 md:left-auto md:h-auto md:w-auto md:flex-row md:gap-1
 			md:p-0 md:opacity-100 md:backdrop-blur-none
@@ -64,9 +66,9 @@
 		>
 		{#each links as link (link)}
 			<Button
-				size="sm"
+				size="lg"
 				variant="outline"
-				class="w-svw md:w-auto"
+				class="w-svw md:h-8 md:w-auto md:text-sm"
 				href={link.href}
 				onclick={toggleMenu}>{link.title}</Button
 			>
