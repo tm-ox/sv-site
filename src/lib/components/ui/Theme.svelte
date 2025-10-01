@@ -8,7 +8,7 @@
 <Button
 	size="lg"
 	variant="outline"
-	class="mt-4 w-svw md:mt-0 md:h-8 md:w-auto md:text-sm"
+	class="mt-4 w-svw pt-0 md:mt-0 md:h-8 md:w-auto md:text-sm"
 	onclick={toggleMode}
 >
 	<SunIcon

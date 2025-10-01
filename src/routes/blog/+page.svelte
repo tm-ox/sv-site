@@ -1,54 +1,29 @@
 <script lang="ts">
 	import type { BlogPost } from '$lib/types/data';
+	import * as Card from '$lib/components/ui/card/index.js';
+	import Button from '$lib/components/ui/button/button.svelte';
+	import Pager from '$lib/components/ui/Pager.svelte';
 
-	let { data }: { data: BlogPost } = $props();
+	let trimmedRows: BlogPost[] = $state([]);
+	let { data }: { data: { articles: BlogPost[] } } = $props();
 </script>
 
 <section>
 	<h1>Blog</h1>
-
-	<div class="article-list">
-		{#each data.articles as article (article.id)}
-			<a href={`/blog/${article.id}`} class="article-card">
-				<h4>{article.title}</h4>
-				<p>{article.body.substring(0, 100)}...</p>
-				<span>Read Article &rarr;</span>
-			</a>
+	<Pager rows={data.articles} bind:trimmedRows />
+	<div class="card-grid">
+		{#each trimmedRows as article (article.id)}
+			<Card.Root>
+				<Card.Header>
+					<Card.Title>{article.title.toUpperCase()}</Card.Title>
+				</Card.Header>
+				<Card.Content>
+					<p>{article.body.substring(0, 100)}...</p>
+				</Card.Content>
+				<Card.Footer>
+					<Button href={`/blog/${article.id}`} class="mx-auto">Read More &rarr;</Button>
+				</Card.Footer>
+			</Card.Root>
 		{/each}
 	</div>
 </section>
-<!--
-<style>
-	.article-list {
-		display: grid;
-		gap: 20px;
-	}
-
-	.article-card {
-		/* Style the anchor tag to look like a card */
-		display: block;
-		border: 1px solid #ccc;
-		padding: 15px;
-		border-radius: 8px;
-		text-decoration: none; /* Remove underline */
-		color: inherit; /* Inherit text color */
-		transition: background-color 0.2s;
-	}
-
-	.article-card:hover {
-		background-color: #f5f5f5;
-		/* Optionally, style the heading/text to indicate interaction */
-	}
-
-	.article-card h2 {
-		margin-top: 0;
-		margin-bottom: 10px;
-	}
-
-	.article-card span {
-		display: block;
-		margin-top: 10px;
-		font-weight: bold;
-		color: blue; /* Make the "Read Article" text stand out */
-	}
-</style> -->

@@ -37,7 +37,7 @@
 			switch (message?.type) {
 				case 'success':
 					toast.success(message?.text);
-					formInstance.reset()
+					formInstance.reset();
 					break;
 				case 'error':
 					toast.error(message?.text);
@@ -51,8 +51,8 @@
 
 <Card.Root class="w-full max-w-3xl p-8">
 	<Card.Header>
-		<!-- <Card.Title>{title}</Card.Title> -->
-		<Card.Description><h4 class="text-center">{desc}</h4></Card.Description>
+		<Card.Title>{desc}</Card.Title>
+		<!-- <Card.Description>{desc}</Card.Description> -->
 	</Card.Header>
 	<form method="POST" use:enhance class="flex flex-col gap-4">
 		<Form.Field form={formInstance} name="email">

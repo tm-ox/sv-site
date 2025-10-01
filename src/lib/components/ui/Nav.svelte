@@ -68,7 +68,7 @@
 			<Button
 				size="lg"
 				variant="outline"
-				class="w-svw md:h-8 md:w-auto md:text-sm"
+				class="w-svw pt-2 md:h-8 md:w-auto md:text-sm"
 				href={link.href}
 				onclick={toggleMenu}>{link.title}</Button
 			>

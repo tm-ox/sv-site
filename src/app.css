@@ -190,7 +190,7 @@
 		@apply mb-2 font-display font-bold;
 	}
 	h1 {
-		@apply text-5xl md:text-7xl;
+		@apply text-5xl uppercase md:text-7xl;
 	}
 	h2 {
 		@apply text-4xl md:text-5xl;
@@ -214,14 +214,17 @@
 }
 
 @layer components {
+	.card-grid {
+		@apply grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+	}
 }
 
 /* For WebKit-based browsers (Chrome, Safari, Edge) */
 html::-webkit-scrollbar {
-  width: 0;
-  height: 0;
+	width: 0;
+	height: 0;
 }
 /* For Firefox */
 html {
-  scrollbar-width: none; /* Hide scrollbar in Firefox */
+	scrollbar-width: none; /* Hide scrollbar in Firefox */
 }
