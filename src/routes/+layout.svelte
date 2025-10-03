@@ -6,6 +6,7 @@
 	import Nav from '$lib/components/ui/Nav.svelte';
 	import { onNavigate } from '$app/navigation';
 	import { Toaster } from '$lib/components/ui/sonner';
+	import Theme from '$lib/components/ui/Theme.svelte';
 
 	onNavigate((navigation) => {
 		if (!document.startViewTransition) return;
@@ -49,7 +50,12 @@
 <header class="fixed top-0 left-0 flex w-full justify-between px-4 py-4 sm:px-6">
 	<div class="mx-auto flex w-full max-w-7xl items-center justify-between">
 		Header
-		<Nav links={data.nav.links} />
+		<div class="flex gap-1">
+			<Nav links={data.nav.links} />
+			<div class="bg-red hidden h-8 p-0 md:block">
+				<Theme />
+			</div>
+		</div>
 	</div>
 </header>
 

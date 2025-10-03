@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	// import { $state } from 'svelte'; // Import $state
-	import Theme from './Theme.svelte';
 	import Button from './button/button.svelte';
+	import Theme from './Theme.svelte';
 
 	// Declare reactive state with $state()
 	let isMenuOpen = $state(false);
@@ -48,7 +48,7 @@
 	<div
 		class="
 			z-50 flex w-full
-			flex-col items-center gap-6 pb-48 backdrop-blur
+			flex-col items-center gap-4 pb-48 backdrop-blur
 
 			md:relative md:top-0 md:left-auto md:h-auto md:w-auto md:flex-row md:gap-1
 			md:p-0 md:opacity-100 md:backdrop-blur-none
@@ -68,11 +68,13 @@
 			<Button
 				size="lg"
 				variant="outline"
-				class="w-svw pt-2 md:h-8 md:w-auto md:text-sm"
+				class="w-svw px-4 pt-1 md:h-8 md:w-auto md:text-sm"
 				href={link.href}
 				onclick={toggleMenu}>{link.title}</Button
 			>
 		{/each}
-		<Theme />
+		<div class="bg-red h-8 p-0 md:hidden">
+			<Theme />
+		</div>
 	</div>
 </nav>

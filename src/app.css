@@ -211,6 +211,9 @@
 	section {
 		@apply mx-auto flex w-full max-w-7xl flex-col gap-4 px-3 pt-20 sm:px-6;
 	}
+	pre {
+		@apply overflow-hidden rounded border border-primary p-2;
+	}
 }
 
 @layer components {
