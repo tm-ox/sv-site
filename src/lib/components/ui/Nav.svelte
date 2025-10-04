@@ -1,10 +1,12 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	// import { $state } from 'svelte'; // Import $state
+	import { getStores } from '$app/stores';
+
+	const { page } = getStores();
+
 	import Button from './button/button.svelte';
 	import Theme from './Theme.svelte';
 
-	// Declare reactive state with $state()
 	let isMenuOpen = $state(false);
 	let isResizing = $state(false);
 
@@ -53,7 +55,7 @@
 			md:relative md:top-0 md:left-auto md:h-auto md:w-auto md:flex-row md:gap-1
 			md:p-0 md:opacity-100 md:backdrop-blur-none
 
-			{isMenuOpen ? 'fixed top-0 left-0 h-svh' : 'fixed top-[-100%] left-0'}
+			{isMenuOpen ? 'fixed top-0 left-0 h-svh' : 'fixed top-[-110%] left-0'}
 			{isResizing ? 'transition-none' : 'transition-all duration-300 ease-in md:transition-none'}
 		"
 	>
@@ -67,7 +69,7 @@
 		{#each links as link (link)}
 			<Button
 				size="lg"
-				variant="outline"
+				variant={$page.url.pathname === link.href ? 'default' : 'outline'}
 				class="w-svw px-4 pt-1 md:h-8 md:w-auto md:text-sm"
 				href={link.href}
 				onclick={toggleMenu}>{link.title}</Button
