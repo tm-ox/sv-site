@@ -7,13 +7,11 @@
 	let result = $derived(count * factor);
 </script>
 
-<section class="items-center pt-4">
-	<h1>{count} * {factor} = {result}</h1>
-	<div class="flex gap-1">
-		<Button onclick={() => count++}>Count: {count}</Button>
-		<Button onclick={() => factor++}>Factor: {factor}</Button>
-	</div>
-</section>
+<h1>{count} * {factor} = {result}</h1>
+<div class="flex gap-1">
+	<Button onclick={() => count++}>Count: {count}</Button>
+	<Button onclick={() => factor++}>Factor: {factor}</Button>
+</div>
 
 <article class="prose dark:prose-invert">
 	<Content />

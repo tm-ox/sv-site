@@ -8,13 +8,11 @@
 	setInterval(() => (counter += 1), 1000);
 </script>
 
-<section class="items-center pt-4">
-	<Button onclick={() => count++}>
-		{count}
-	</Button>
+<Button onclick={() => count++}>
+	{count}
+</Button>
 
-	<p>{counter}</p>
-</section>
+<p>{counter}</p>
 
 <article class="prose dark:prose-invert">
 	<Content />

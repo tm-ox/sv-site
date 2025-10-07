@@ -32,7 +32,6 @@
 	let titleName = $derived(name ? name.charAt(0).toUpperCase() + name.slice(1) : '');
 </script>
 
-<section class="items-center pt-4">
 	<img src={image} alt={pokemon} />
 
 	<h2>{name.charAt(0).toUpperCase() + name.slice(1)}</h2>
@@ -48,7 +47,6 @@
 		placeholder="Search Pokémon"
 		oninput={(e) => (pokemon = (e.target as HTMLInputElement).value)}
 	/>
-</section>
 
 <article class="prose dark:prose-invert">
 	<Content />

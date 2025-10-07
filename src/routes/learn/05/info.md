@@ -35,7 +35,6 @@
 	{b}
 </section>
 
-<section class="flex-rowitems-center pt-4">
 	{obj.current}
 	<Button
 		onclick={() => {
@@ -44,7 +43,6 @@
 		}}>Update</Button
 	>
 	{arr}
-</section>
 
 <article class="prose dark:prose-invert">
 	<Content />

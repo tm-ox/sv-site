@@ -6,11 +6,9 @@
 	let counter = new Counter(0);
 </script>
 
-<section class="items-center pt-4">
-	<Button onclick={() => counter.count++}>
-		{counter.count}
-	</Button>
-</section>
+<Button onclick={() => counter.count++}>
+	{counter.count}
+</Button>
 
 <article class="prose dark:prose-invert">
 	<Content />

@@ -28,7 +28,6 @@
 	});
 </script>
 
-<section class="items-center pt-4">
 	<div class="grid w-full grid-cols-5 gap-2">
 		{#each items as item (item)}
 			<Card.Root class="item">
@@ -42,7 +41,6 @@
 	</div>
 
 	<Button onclick={shuffle}>Shuffle</Button>
-</section>
 
 <article class="prose dark:prose-invert">
 	<Content />

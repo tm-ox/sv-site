@@ -22,7 +22,6 @@
 	let counter = new Counter(0);
 </script>
 
-<section class="items-center pt-4">
 	<Button onclick={() => counterFunc.count++}>
 		{counterFunc.count}
 	</Button>
@@ -34,7 +33,6 @@
 		{counter.count}
 	</Button>
 	Class
-</section>
 
 <article class="prose dark:prose-invert">
 	<Content />

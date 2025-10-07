@@ -22,11 +22,9 @@ export class Counter {
 	let counter = new Counter(0);
 </script>
 
-<section class="items-center pt-4">
 	<Button onclick={() => counter.count++}>
 		{counter.count}
 	</Button>
-</section>
 
 <article class="prose dark:prose-invert">
 	<Content />

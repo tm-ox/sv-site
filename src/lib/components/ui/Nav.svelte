@@ -49,13 +49,13 @@
 
 	<div
 		class="
-			z-50 flex w-full
-			flex-col items-center gap-4 pb-48 backdrop-blur
+			z-50 flex w-full flex-col
+			flex-wrap items-center gap-4 pb-48 backdrop-blur
 
 			md:relative md:top-0 md:left-auto md:h-auto md:w-auto md:flex-row md:gap-1
 			md:p-0 md:opacity-100 md:backdrop-blur-none
 
-			{isMenuOpen ? 'fixed top-0 left-0 h-svh' : 'fixed top-[-110%] left-0'}
+			{isMenuOpen ? 'fixed top-0 left-0 h-svh' : 'fixed top-[-100%] left-0 '}
 			{isResizing ? 'transition-none' : 'transition-all duration-300 ease-in md:transition-none'}
 		"
 	>
@@ -68,7 +68,7 @@
 		>
 		{#each links as link (link)}
 			<Button
-				size="lg"
+				size="sm"
 				variant={$page.url.pathname === link.href ? 'default' : 'outline'}
 				class="w-svw px-4 pt-1 md:h-8 md:w-auto md:text-sm"
 				href={link.href}

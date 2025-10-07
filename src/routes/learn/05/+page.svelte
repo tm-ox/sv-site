@@ -25,23 +25,19 @@
 	// });
 </script>
 
-<section class="flex-row items-center pt-4">
-	{a}
-	<Button onclick={() => a++}>A</Button>
-	<Button onclick={() => b++}>B</Button>
-	{b}
-</section>
+{a}
+<Button onclick={() => a++}>A</Button>
+<Button onclick={() => b++}>B</Button>
+{b}
 
-<section class="flex-rowitems-center pt-4">
-	{obj.current}
-	<Button
-		onclick={() => {
-			obj.current++;
-			arr.push(1);
-		}}>Update</Button
-	>
-	{arr}
-</section>
+{obj.current}
+<Button
+	onclick={() => {
+		obj.current++;
+		arr.push(1);
+	}}>Update</Button
+>
+{arr}
 
 <article class="prose dark:prose-invert">
 	<Content />

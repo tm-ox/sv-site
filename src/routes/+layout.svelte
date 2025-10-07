@@ -52,7 +52,7 @@
 		Header
 		<div class="flex gap-1">
 			<Nav links={data.nav.links} />
-			<div class="bg-red hidden h-8 p-0 md:block">
+			<div class="hidden h-8 p-0 md:block">
 				<Theme />
 			</div>
 		</div>

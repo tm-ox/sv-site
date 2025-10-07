@@ -18,9 +18,7 @@
 	});
 </script>
 
-<section class="items-center pt-4">
 	<p>Total: {total}</p>
-</section>
 
 <article class="prose dark:prose-invert">
 	<Content />

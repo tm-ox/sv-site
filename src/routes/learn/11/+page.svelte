@@ -1,8 +1,12 @@
 <script lang="ts">
+	import Button from '$lib/components/ui/button/button.svelte';
+	import { config } from '$lib/config.svelte';
 	import Content from './info.md';
 </script>
 
-<section class="items-center pt-4"></section>
+<Button onclick={config.toggleTheme}>
+	{config.theme}
+</Button>
 
 <article class="prose dark:prose-invert">
 	<Content />

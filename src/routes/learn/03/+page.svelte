@@ -15,9 +15,7 @@
 	});
 </script>
 
-<section class="items-center pt-4">
-	<h1>Total: {total}</h1>
-</section>
+<h1>Total: {total}</h1>
 
 <article class="prose dark:prose-invert">
 	<Content />

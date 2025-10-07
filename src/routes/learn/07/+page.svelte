@@ -26,21 +26,19 @@
 	});
 </script>
 
-<section class="items-center pt-4">
-	<div class="grid w-full grid-cols-5 gap-2">
-		{#each items as item (item)}
-			<Card.Root class="item">
-				<Card.Content class="w- pt-3">
-					<h3 class="text-primary">
-						{item}
-					</h3>
-				</Card.Content>
-			</Card.Root>
-		{/each}
-	</div>
+<div class="grid w-full grid-cols-5 gap-2">
+	{#each items as item (item)}
+		<Card.Root class="item">
+			<Card.Content class="w- pt-3">
+				<h3 class="text-primary">
+					{item}
+				</h3>
+			</Card.Content>
+		</Card.Root>
+	{/each}
+</div>
 
-	<Button onclick={shuffle}>Shuffle</Button>
-</section>
+<Button onclick={shuffle}>Shuffle</Button>
 
 <article class="prose dark:prose-invert">
 	<Content />
