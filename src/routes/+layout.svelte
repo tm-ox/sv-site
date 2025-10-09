@@ -49,7 +49,7 @@
 
 <header class="fixed top-0 left-0 flex w-full justify-between px-4 py-4 sm:px-6">
 	<div class="mx-auto flex w-full max-w-7xl items-center justify-between">
-		Header
+		<h4>👻</h4>
 		<div class="flex gap-1">
 			<Nav links={data.nav.links} />
 			<div class="hidden h-8 p-0 md:block">
