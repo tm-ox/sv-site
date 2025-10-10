@@ -1,15 +1,12 @@
-### Tweening
+### Spring
 
 ```ts
 <script lang="ts">
 	import Content from './info.md';
 
-	import { Tween } from 'svelte/motion';
-	import { cubicInOut } from 'svelte/easing';
+	import { Spring } from 'svelte/motion';
 
-	const size = new Tween(50, { duration: 300, easing: cubicInOut });
-
-	const spring = new Spring(50, { duration: 300, easing: cubicInOut });
+	const size = new Spring(50, { stiffness: 0.1, damping: 0.25, precision: 0.1 });
 
 	function onmousedown() {
 		size.target = 150;

@@ -1,9 +1,9 @@
 ### Transitions Between Elements
 
 ```ts
-
 <script lang="ts">
 	import * as Card from '$lib/components/ui/card/index.js';
+	import { flip } from 'svelte/animate';
 	import { crossfade } from 'svelte/transition';
 
 	import Content from './info.md';
@@ -65,7 +65,7 @@
 	<h3>Posts</h3>
 	<div class="grid grid-cols-3 gap-4">
 		{#each posts.filter((posts) => posts.published) as post (post)}
-			<article in:receive={{ key: post }} out:send={{ key: post }}>
+			<article animate:flip={{ duration: 200 }} in:receive={{ key: post }} out:send={{ key: post }}>
 				<Card.Root>
 					<Card.Header>
 						<h3>{post.title}</h3>
@@ -89,7 +89,7 @@
 	<h3>Archive</h3>
 	<div class="grid grid-cols-3 gap-4">
 		{#each posts.filter((posts) => !posts.published) as post (post)}
-			<article in:receive={{ key: post }} out:send={{ key: post }}>
+			<article animate:flip={{ duration: 200 }} in:receive={{ key: post }} out:send={{ key: post }}>
 				<Card.Root>
 					<Card.Header>
 						<h3>{post.title}</h3>
